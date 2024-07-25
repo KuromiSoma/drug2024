@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.drug.store.mapper.PtUketukeMapper">
+    <select id="selectAll" resultType="org.drug.store.ptuketukelist.PtUketuke">
+		SELECT pt.uke_no as ukeNo
+		      ,TO_CHAR(pt.receipt_date,'yyyy/MM/dd') as receiptDate
+		      ,hm.hp_name as hpName
+		      ,dm.dr_name as drName
+		FROM drug_user.pt_tran pt
+		    ,drug_user.pt_master pm
+		    ,drug_user.hp_master hm
+		    ,drug_user.dr_master dm
+		WHERE pt.del_flg = 0
+		  AND pt.pt_no = pm.pt_no
+		  AND pt.hp_no = hm.hp_no
+		  AND pt.dr_no = dm.dr_no
+		  AND pt.pt_no = 1
+		ORDER BY pt.uke_no
+    </select>
+</mapper>
