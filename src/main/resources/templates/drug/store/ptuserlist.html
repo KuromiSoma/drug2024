@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="/css/index.css" th:href="@{/css/index.css}" rel="stylesheet">
+</head>
+<body>
+<script type="text/javascript" src="/js/index.js"></script>
+
+	<div><p>患者一覧</p></div>
+	<table class="list">
+	  <tbody><tr>
+		  <th class="r1" style="width: 5%">患者ID</th>
+  	    <th class="r1" style="width: 20%">患者名</th>
+  	    <th class="r2" style="width: 12%">生年月日</th>
+  	    <th class="r2" style="width: 18%">保険番号</th>
+  	    <th class="r3" style="width: 18%">保険記号</th>
+  		<th class="r3" style="width: 15%">保険記号2</th>
+  		<th class="r4" style="width: 5%">扶養</th>
+  		<th class="r4" style="width: 15%">有効期限</th>
+	  </tr>
+	  <tr th:each="list:${list}">
+	    <td><a href="/ptuketukelist" th:href="@{/ptuketukelist}" th:text="${list.ptNo}"></a></td>
+	    <td th:text="${list.ptName}"></td>
+	    <td th:text="${list.birthdayDt}"></td>
+	    <td th:text="${list.insuranceNo}"></td>
+	    <td th:text="${list.insuranceCd}"></td>
+		<td th:text="${list.insuranceCd2}"></td>
+		<td th:text="${list.fuyoFlg}"></td>
+		<td th:text="${list.expDt}"></td>
+	  </tr>
+	</tbody></table>
+	<br>
+	<div class="button">
+		<a href="./newpt" class="btn-circle-flat">新規登録</a>
+	</div>
+</body>
+</html>

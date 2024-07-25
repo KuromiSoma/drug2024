@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.drug.store.mapper.PtUserMapper">
+    <select id="selectAll" resultType="org.drug.store.ptuserlist.PtUser">
+		SELECT pt_no as ptNo
+		      ,pt_name as ptName
+		      ,TO_CHAR(pt.birthday_dt,'yyyy/MM/dd') as birthdayDt
+		      ,insurance_no as insuranceNo
+		      ,insurance_cd as insuranceCd
+		      ,insurance2_cd as insuranceCd2
+		      ,fuyo_flg as fuyoFlg
+		      ,TO_CHAR(pt.exp_dt,'yyyy/MM/dd') as expDt
+		FROM drug_user.pt_master pt
+		WHERE del_flg = 0
+    </select>
+</mapper>
