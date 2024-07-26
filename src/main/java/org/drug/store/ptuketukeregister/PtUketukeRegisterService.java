@@ -10,6 +10,7 @@ import org.drug.store.mapper.PtUketukeMapper;
 import org.drug.store.mapper.PtUserMapper;
 import org.drug.store.ptuserlist.PtUser;
 
+
 @Service
 @Transactional //宣言的トランザクション管理：begin/commit/rollbackを直接書かない。publicのみ。メソッド開始/終了で制御
 public class PtUketukeRegisterService {
