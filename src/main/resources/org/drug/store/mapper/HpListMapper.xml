@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.drug.store.mapper.HpListMapper">
+	<select id="selectAll" resultType="org.drug.store.hplist.HpList">
+		SELECT
+		 hp_no as hpNo,
+		 hp_name as hpName,
+		 hp_tel as hpTel,
+		 hp_cd as hpCd
+		 FROM
+		 drug_user.hp_master hm
+		 WHERE
+		 del_flg = 0
+	</select>
+	
+	<insert id="insert_hp_master">
+	INSERT INTO
+	 drug_user.hp_master(
+	    hp_no,
+	 	hp_name,
+		hp_add_no,
+		hp_add1_name,
+		hp_add2_name,
+		hp_add3_name,
+		hp_tel,
+		hp_cd,
+		del_flg,
+		register_user_id,
+		register_date
+		)
+		VALUES
+		(
+		nextval('hp_no_seq'),
+		#{hpName},
+		#{hpAddNo},
+		#{hpAddName1},
+		#{hpAddName2},
+		#{hpAddName3},
+		#{hpTel},
+		#{hpCd},
+		0,
+		'test1',
+		CURRENT_DATE
+		)
+		</insert>
+
+
+</mapper>
