@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>drtoroku</title>
+<link href="/css/pttoroku.css" th:href="@{/css/pttoroku.css}" rel="stylesheet">
+
+
+
+	<form action="/drtoroku" method="post" name="drtorokuReg">
+		<div class="container">
+			<div class="row">
+				<div class="gray">
+					<span style="color: Red;">（※）</span>は必須
+				</div>
+			</div>
+			<div class="UserInfoTitle">1</div>
+			<div class="row">
+				<div class="UserInfo1_1 head">医師名</div>
+				<div class="row">
+					<div class="UserDtl_1">医師名</div>
+					<input type="text" name="drName" size="50" maxlength="50" class="kana" style="">
+				</div>
+				<div class="UserInfo1_1 head">病院名</div>
+				<div class="row">
+					<div class="UserDtl_1">
+						<span style="color: Red;"></span>病院名
+					</div>
+					<select class="form-control" id="hpNo" name="hpNo">
+						<option value="">---</option>
+						<option th:each="item : ${hpList}" th:value="${item.hpNo}" th:text="${item.hpName}" th:selected="${item.hpNo} == *{hpNo}">pulldown</option>
+					</select>
+				</div>
+				<div class="UserInfo1_1 head">診療科</div>
+				<div class="row">
+					<div class="UserDtl_1">
+						<span style="color: Red;"></span>診療科
+					</div>
+					<select class="form-control" id="kaNo" name="kaNo">
+						<option value="">--</option>
+						<option th:each="item : ${kaList}" th:value="${item.kaNo}" th:text="${item.kaName}" th:selected="${item.kaNo} == *{kaNo}"></option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<button class="reset flat fade" type="submit" name="action" value="doCommit" id="doCommit" onclick="executeSubmit()">登録</button>
+		</div>
+	</form>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/pttoroku.js"></script>
+</body>
+</html>

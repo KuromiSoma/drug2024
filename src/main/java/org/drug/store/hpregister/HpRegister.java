@@ -1,4 +1,4 @@
-package org.drug.store.hpregsiter;
+package org.drug.store.hpregister;
 
 import lombok.Data;
 

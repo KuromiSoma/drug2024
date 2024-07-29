@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>hptoroku</title>
+<link href="/css/pttoroku.css" th:href="@{/css/pttoroku.css}" rel="stylesheet">
+
+
+
+	<form action="/hptoroku" method="post" name="hptorokuReg">
+		<div class="container">
+			<div class="row">
+				<div class="gray">
+					<span style="color: Red;">（※）</span>は必須
+				</div>
+			</div>
+			<div class="UserInfoTitle">1</div>
+			<div class="row">
+				<div class="UserInfo1_1 head">病院名</div>
+				<div class="row">
+					<div class="UserDtl_1">病院名</div>
+					<input type="text" name="hpName" size="50" maxlength="50" class="kana" style="">
+				</div>
+				<div class="UserInfo1_1 head">郵便番号</div>
+				<div class="row">
+					<div class="UserDtl_1">
+						<span style="color: Red;"></span>郵便番号
+					</div>
+					<input type="text" name="hpAddNo" size="20" maxlength="7" class="kana" style="">
+				</div>
+				<div class="UserInfo1_1 head2">病院住所</div>
+				<div class="row">
+					<div class="UserDtl_1">
+						<span style="color: Red;"></span>都道府県
+					</div>
+					<input type="text" name="hpAddName1" size="20" maxlength="20" class="kana" style="">
+				</div>
+				<div class="row">
+					<div class="UserDtl_1">
+						<span style="color: Red;"></span>市区町村
+					</div>
+					<input type="text" name="hpAddName2" size="20" maxlength="20" class="kana" style="">
+				</div>
+				<div class="row">
+					<div class="UserDtl_1">
+						<span style="color: Red;"></span>番地・号室
+					</div>
+					<input type="text" name="hpAddName3" size="20" maxlength="20" class="kana" style="">
+				</div>
+				<div class="UserInfo1_1 head">電話番号</div>
+				<div class="row">
+					<div class="UserDtl_1">
+						<span style="color: Red;"></span>電話番号
+					</div>
+					<input type="text" name="hpTel" size="20" maxlength="20" class="kana" style="">
+				</div>
+				<div class="UserInfo1_1 head">医療機関コード</div>
+				<div class="row">
+					<div class="UserDtl_1">
+						<span style="color: Red;"></span>医療機関コード
+					</div>
+					<input type="text" name="hpCd" size="20" maxlength="20" class="kana" style="">
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<button class="reset flat fade" type="submit" name="action" value="doCommit" id="doCommit" onclick="executeSubmit()">登録</button>
+		</div>
+	</form>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/pttoroku.js"></script>
+</body>
+</html>

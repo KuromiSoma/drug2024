@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.drug.store.mapper.DrListMapper">
+	<select id="selectAll" resultType="org.drug.store.drlist.DrList">
+		SELECT
+			dm.dr_no as drNo,
+			dm.dr_name as drName,
+			hm.hp_name as hpName,
+			km.ka_name as kaName
+		FROM
+			drug_user.dr_master dm,
+			drug_user.hp_master hm,
+			drug_user.ka_master km
+		WHERE
+			dm.del_flg = 0
+			and dm.hp_no = hm.hp_no
+			and dm.ka_no = km.ka_no
+	</select>
+	
+	<insert id="insert_dr_master" parameterType="org.drug.store.drregister.DrRegister">
+INSERT INTO
+drug_user.dr_master(
+dr_no,
+dr_name,
+hp_no,
+ka_no,
+del_flg,
+register_user_id,
+register_date
+)
+VALUES
+(
+nextval('dr_no_seq'),
+#{rec.drName},
+#{rec.hpNo},
+#{rec.kaNo},
+0,
+'test1',
+CURRENT_DATE
+)
+
+</insert>
+
+</mapper>

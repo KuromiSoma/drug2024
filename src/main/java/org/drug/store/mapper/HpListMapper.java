@@ -9,6 +9,6 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface HpListMapper {
-	List<hplist> selectAll();
+	List<HpList> selectAll();
 	void insert_hp_master(HpRegister toroku);
 }

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>病院一覧</title>
+<title>診療科一覧</title>
 <link href="/css/index.css" th:href="@{/css/index.css}" rel="stylesheet">
 
 
@@ -10,21 +10,17 @@
 	<table class="list">
 	  <tbody><tr>
 	    <th class="r1" style="width:5%">ID</th>
-	    <th class="r1" style="width: 20%">病院名</th>
-	    <th class="r2" style="width: 12%">電話番号</th>
-	    <th class="r2" style="width: 18%">医療機関コード</th>
+	    <th class="r1" style="width: 20%">診療科名</th>
 
 	  </tr>
 	  <tr th:each="list:${list}">
-	  	<td><a href="/hplist" th:href="@{/hplist}" th:text="${list.hpNo}"></a></td>
-	  	<td th:text="${list.hpName}"></td>
-	  	<td th:text="${list.hpTel}"></td>
-	  	<td th:text="${list.hpCd}"></td>
+	  	<td><a href="/kalist" th:href="@{/kalist}" th:text="${list.kaNo}"></a></td>
+	  	<td th:text="${list.kaName}"></td>
 	  </tr>
 	</tbody></table>
 	<br>
 	<div class="button">
-		<a href="./hptoroku" class="btn-circle-flat">新規登録</a>
+		<a href="./newpt" class="btn-circle-flat">新規登録</a>
 	</div>
 </body>
 </html>
